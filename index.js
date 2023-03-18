@@ -1,44 +1,21 @@
 import ConvertValue from "./ConvertValue.js"
-
-
-const containerEl = document.getElementById("container")
-
-containerEl.innerHTML = 
-`<section class="section1">
-<h1 class="section1-heading">Metric/Imperial Units Conversion</h1>
-<input type="number" name="" id="units-display-area" class="units-display-area">
-<button class="convert-btn" id="convert-btn">Convert</button>
-</section>
-<section class="section2">
-<div class="section2-length">
-    <h4 class="section2-length-heading section2-h4-styling">Length(Meter/Feet)</h4>
-    <p class="section2-length-paragraph section2-p-styling" id="section2-length-paragraph"></p>
-</div>
-<div class="section2-volume">
-    <h4 class="section2-volume-heading section2-h4-styling">Volume(Liters/Gallons)</h4>
-    <p class="section2-volume-paragraph section2-p-styling" id="section2-volume-paragraph"></p>
-</div>
-<div class="section2-mass">
-    <h4 class="section2-mass-heading section2-h4-styling">Mass(Kilograms/Pounds)</h4>
-    <p class="section2-mass-paragraph section2-p-styling" id="section2-mass-paragraph"></p>
-</div>
-</section>
-`
-
-
-
-
-const convertBtn = document.getElementById("convert-btn")
-
-convertBtn.addEventListener("click", function () {
-    
-    convert.convertLenth()
-    convert.convertVolume()
-    convert.convertWeight()
-    document.getElementById("units-display-area").value = ''
-})
-
-
-
+import {section2LengthParagraph, section2VolumeParagraph, section2MassParagraph, containerEl} from './elements.js'
 
 const convert = new ConvertValue()
+
+function render() { 
+    containerEl.innerHTML = convert.getContainerHtml()
+}
+
+render()
+
+const convertBtn = document.getElementById("convert-btn")
+convertBtn.addEventListener("click", function () {
+    // const unitsInput = document.getElementById("units-display-area").value
+    // convert.convertLenth(unitsInput)
+    // convert.convertVolume(unitsInput)
+    // convert.convertWeight(unitsInput)
+    // document.getElementById("units-display-area").value = ''
+    document.getElementById("units-display-area").value === true ? console.log('Value exists') : console.log('No input')
+    
+})
