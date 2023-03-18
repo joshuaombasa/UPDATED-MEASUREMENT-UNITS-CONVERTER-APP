@@ -1,3 +1,5 @@
+import {section2LengthParagraph, section2VolumeParagraph, section2MassParagraph} from './elements.js'
+
 function ConvertValue() {
     this.convertLenth = () => {
         const unitsInput = document.getElementById("units-display-area").value
