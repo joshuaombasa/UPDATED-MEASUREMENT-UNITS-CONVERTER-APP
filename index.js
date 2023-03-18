@@ -32,6 +32,7 @@ containerEl.innerHTML =
 const section2LengthParagraph = document.getElementById("section2-length-paragraph")
 const section2VolumeParagraph = document.getElementById("section2-volume-paragraph")
 const section2MassParagraph = document.getElementById("section2-mass-paragraph")
+const inputValue = document.getElementById("units-display-area").value
 
 const convertBtn = document.getElementById("convert-btn")
 
@@ -45,34 +46,33 @@ convertBtn.addEventListener("click", function () {
 
 
 
-function ConvertValue() {
+function ConvertValue(data) {
+
+    Object.assign(this, data)
 
     this.convertLenth = () => {
-        const unitsInput = document.getElementById("units-display-area").value
-        let distanceFeet = unitsInput * 3.281
+        let distanceFeet = this.unitsInput * 3.281
         distanceFeet = distanceFeet.toFixed(3)
-        let distanceMeters = unitsInput/3.281
+        let distanceMeters = this.unitsInput/3.281
         distanceMeters = distanceMeters.toFixed(3)
-        section2LengthParagraph.textContent = `${unitsInput} meters = ${distanceFeet} feet | ${unitsInput} feet = ${distanceMeters} meters`
+        section2LengthParagraph.textContent = `${this.unitsInput} meters = ${distanceFeet} feet | ${this.unitsInput} feet = ${distanceMeters} meters`
     }
 
     this.convertVolume = () => {
-        const unitsInput = document.getElementById("units-display-area").value
-        let volumeGallon = unitsInput * 0.264
+        let volumeGallon = this.unitsInput * 0.264
         volumeGallon = volumeGallon.toFixed(3)
-        let volumeliter = unitsInput / 0.246
+        let volumeliter = this.unitsInput / 0.246
         volumeliter = volumeliter.toFixed(3)
-        section2VolumeParagraph.textContent = `${unitsInput} liters = ${volumeGallon} gallons | ${unitsInput} gallons = ${volumeliter} liters `
+        section2VolumeParagraph.textContent = `${this.unitsInput} liters = ${volumeGallon} gallons | ${this.unitsInput} gallons = ${volumeliter} liters `
     }
 
     this.convertWeight = () => {
-        const unitsInput = document.getElementById("units-display-area").value
-        let weightPounds = unitsInput * 2.204
+        let weightPounds = this.unitsInput * 2.204
         weightPounds = weightPounds.toFixed(3)
-        let weightInKilograms = unitsInput / 2.204
+        let weightInKilograms = this.unitsInput / 2.204
         weightInKilograms = weightInKilograms.toFixed(3)
-        section2MassParagraph.textContent = `${unitsInput} kilograms = ${weightPounds} pounds | ${unitsInput} pounds = ${weightInKilograms} kilograms `
+        section2MassParagraph.textContent = `${this.unitsInput} kilograms = ${weightPounds} pounds | ${this.unitsInput} pounds = ${weightInKilograms} kilograms `
     }
 }
 
-const convert = new ConvertValue
+const convert = new ConvertValue(inputValue)
