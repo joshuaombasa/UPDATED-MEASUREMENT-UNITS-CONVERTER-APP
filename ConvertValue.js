@@ -26,3 +26,5 @@ function ConvertValue() {
         section2MassParagraph.textContent = `${unitsInput} kilograms = ${weightPounds} pounds | ${unitsInput} pounds = ${weightInKilograms} kilograms `
     }
 }
+
+export default ConvertValue
